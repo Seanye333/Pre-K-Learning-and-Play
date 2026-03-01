@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Nunito', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  /* Prevent iOS Safari pull-to-refresh and bounce scroll */
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  /* Fill around notch / home indicator on iPad */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Prevent accidental text selection during game play */
+.game-area {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Large tap targets for kids — iOS minimum is 44px */
+button {
+  cursor: pointer;
+  touch-action: manipulation;
+  min-height: 44px;
+}
+
+/* Smooth scrolling in scrollable game areas on iOS */
+.overflow-auto,
+.overflow-y-auto {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
