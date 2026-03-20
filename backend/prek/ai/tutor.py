@@ -22,6 +22,16 @@ EASIER_MAP: dict[str, str] = {
     "vehicles": "Start with Learn — tap each vehicle to hear its sound and fun fact",
     "clock": "Start with Learn — see o'clock times with daily activities",
     "shadow": "Look at the overall shape of the shadow before choosing!",
+    "phonics": "Start with clear emojis — listen to the name and find the first letter",
+    "sizeorder": "Try the first group — arrange 3 items from smallest to biggest",
+    "helpers": "Browse Learn mode — tap each helper to see their tools and vehicle",
+    "foodgroups": "Start with Learn — see what foods belong to each group",
+    "sinkorflout": "Think about heavy vs light — rocks sink, feathers float!",
+    "skipcounting": "Start with count-by-10s — 10, 20, 30 are the easiest!",
+    "wordfamilies": "Try the -at family — cat, bat, hat all sound alike at the end",
+    "music": "Start with Learn — tap each instrument to see its name and fun fact",
+    "nature": "Start with Learn → Living — flowers, trees, and animals are all living!",
+    "directions": "Start with Learn — tap each arrow and say the direction out loud",
 }
 
 SAME_MAP: dict[str, str] = {
@@ -48,6 +58,16 @@ SAME_MAP: dict[str, str] = {
     "vehicles": "Keep sorting — try to get all 14 vehicles into the right zone!",
     "clock": "Keep reading clocks — try the Quiz tab to test yourself!",
     "shadow": "Keep matching — can you beat your high score?",
+    "phonics": "Keep finding starting sounds — try all 26 letters!",
+    "sizeorder": "Keep ordering — try all 6 groups with different animals and objects!",
+    "helpers": "Keep matching tools — try the vehicle quiz next!",
+    "foodgroups": "Keep sorting — try to place all 20 foods without any mistakes!",
+    "sinkorflout": "Keep predicting — try to explain why each object sinks or floats!",
+    "skipcounting": "Keep counting — try 2s and 5s for more of a challenge!",
+    "wordfamilies": "Keep building words — try every word family!",
+    "music": "Keep exploring — try the Sort tab to group instruments by family!",
+    "nature": "Keep sorting living and non-living — try the Quiz tab to test yourself!",
+    "directions": "Keep practicing — try the Move Game to guide the chick around the grid!",
 }
 
 HARDER_MAP: dict[str, str] = {
@@ -74,6 +94,16 @@ HARDER_MAP: dict[str, str] = {
     "vehicles": "Can you name a vehicle for each zone without looking at the cards?",
     "clock": "Try half past times in the Quiz — they are trickier than o'clock!",
     "shadow": "Challenge: guess before the answer reveals — trust your eyes!",
+    "phonics": "Challenge: sound out each word before looking at the choices!",
+    "sizeorder": "Challenge: can you complete all 6 groups without any mistakes?",
+    "helpers": "Challenge: describe what each helper does before tapping the card!",
+    "foodgroups": "Challenge: name a food from each group that isn't in the game!",
+    "sinkorflout": "Challenge: predict before dropping — try 5 in a row without a mistake!",
+    "skipcounting": "Challenge: count by 2s all the way to 20 from memory!",
+    "wordfamilies": "Challenge: can you think of more words in each family not shown in the game?",
+    "music": "Challenge: listen for the sound, then name the instrument and its family!",
+    "nature": "Challenge: explain to someone why living things are different from non-living things!",
+    "directions": "Challenge: complete the Move Game 3 times without any wrong moves!",
 }
 
 WEIGHTS = [0.30, 0.20, 0.15, 0.10, 0.08, 0.06, 0.04, 0.03, 0.02, 0.02]
