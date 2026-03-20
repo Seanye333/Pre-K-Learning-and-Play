@@ -14,6 +14,10 @@ EASIER_MAP: dict[str, str] = {
     "fruits": "Start with Learn — tap each fruit or veggie to hear its name",
     "opposites": "Browse the Learn tab — see each opposite pair side by side",
     "spotdiff": "Start with the Farm Scene — spot 3 differences to begin",
+    "numbertrace": "Trace number 1 first — it's just one straight line down!",
+    "sightwords": "Try Flash Cards — flip each card to see the word in a sentence",
+    "bodyparts": "Browse the Learn tab — tap each body part to hear a fun fact",
+    "daysmonths": "Start with the Days tab — tap each day and learn its emoji",
 }
 
 SAME_MAP: dict[str, str] = {
@@ -32,6 +36,10 @@ SAME_MAP: dict[str, str] = {
     "fruits": "Keep sorting — try the Compare Size tab to guess which is bigger!",
     "opposites": "Keep matching opposites — aim for 10 in a row!",
     "spotdiff": "Keep spotting differences — try to find them all without any wrong taps!",
+    "numbertrace": "Keep tracing — try numbers 4, 7, and 8 which have more curves!",
+    "sightwords": "Keep reading — try the Find It tab to spot words in sentences",
+    "bodyparts": "Keep learning — try the Quiz tab to test what you know!",
+    "daysmonths": "Keep practicing — try the Order Game to put days in the right order",
 }
 
 HARDER_MAP: dict[str, str] = {
@@ -50,6 +58,10 @@ HARDER_MAP: dict[str, str] = {
     "fruits": "Try Sort mode — race to sort all 18 fruits and veggies correctly!",
     "opposites": "Challenge yourself — describe each opposite in your own words!",
     "spotdiff": "Try the Space and Jungle puzzles — they have 3-4 tricky differences!",
+    "numbertrace": "Challenge yourself with 6, 8, and 9 — the hardest numbers to trace!",
+    "sightwords": "Try the Spell It tab — build sight words from letter tiles!",
+    "bodyparts": "Challenge: name every body part and say one thing it helps you do!",
+    "daysmonths": "Try the Order Game with months — can you name the season for each one?",
 }
 
 WEIGHTS = [0.30, 0.20, 0.15, 0.10, 0.08, 0.06, 0.04, 0.03, 0.02, 0.02]

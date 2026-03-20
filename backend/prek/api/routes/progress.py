@@ -7,7 +7,7 @@ from prek.core.models import SkillScore
 
 router = APIRouter(tags=["progress"])
 
-SKILLS = ["abc", "math", "memory", "drawing", "shapes", "rhymes", "emotions", "wordbuilder", "colors", "animals", "story", "trace", "fruits", "opposites", "spotdiff"]
+SKILLS = ["abc", "math", "memory", "drawing", "shapes", "rhymes", "emotions", "wordbuilder", "colors", "animals", "story", "trace", "fruits", "opposites", "spotdiff", "numbertrace", "sightwords", "bodyparts", "daysmonths"]
 
 
 @router.get("/progress", response_model=ProgressResponse)

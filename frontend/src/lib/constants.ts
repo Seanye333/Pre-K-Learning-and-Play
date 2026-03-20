@@ -196,6 +196,38 @@ export const GAME_CARDS = [
     href: "/spotdiff",
     description: "Find what changed!",
   },
+  {
+    id: "numbertrace",
+    label: "Number Trace",
+    emoji: "🔢",
+    color: "from-purple-500 to-indigo-800",
+    href: "/numbertrace",
+    description: "Trace numbers 1 to 10",
+  },
+  {
+    id: "sightwords",
+    label: "Sight Words",
+    emoji: "📖",
+    color: "from-blue-500 to-indigo-800",
+    href: "/sightwords",
+    description: "Read common words",
+  },
+  {
+    id: "bodyparts",
+    label: "Body Parts",
+    emoji: "🫀",
+    color: "from-pink-400 to-rose-700",
+    href: "/bodyparts",
+    description: "Head, hands, knees & toes",
+  },
+  {
+    id: "daysmonths",
+    label: "Days & Months",
+    emoji: "📅",
+    color: "from-sky-400 to-blue-700",
+    href: "/daysmonths",
+    description: "Days of the week & months",
+  },
 ] as const;
 
 export const DRAW_COLORS = [
