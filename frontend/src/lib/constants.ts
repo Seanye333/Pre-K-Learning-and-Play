@@ -228,6 +228,38 @@ export const GAME_CARDS = [
     href: "/daysmonths",
     description: "Days of the week & months",
   },
+  {
+    id: "subtraction",
+    label: "Subtraction",
+    emoji: "➖",
+    color: "from-red-400 to-rose-700",
+    href: "/subtraction",
+    description: "Take away and find what's left",
+  },
+  {
+    id: "vehicles",
+    label: "Vehicles",
+    emoji: "🚗",
+    color: "from-cyan-400 to-blue-700",
+    href: "/vehicles",
+    description: "Land, sea and air transport",
+  },
+  {
+    id: "clock",
+    label: "Telling Time",
+    emoji: "🕐",
+    color: "from-slate-500 to-indigo-800",
+    href: "/clock",
+    description: "O'clock and half past",
+  },
+  {
+    id: "shadow",
+    label: "Shadow Match",
+    emoji: "🌑",
+    color: "from-gray-700 to-gray-900",
+    href: "/shadow",
+    description: "Match the silhouette!",
+  },
 ] as const;
 
 export const DRAW_COLORS = [

@@ -18,6 +18,10 @@ EASIER_MAP: dict[str, str] = {
     "sightwords": "Try Flash Cards — flip each card to see the word in a sentence",
     "bodyparts": "Browse the Learn tab — tap each body part to hear a fun fact",
     "daysmonths": "Start with the Days tab — tap each day and learn its emoji",
+    "subtraction": "Start with small numbers — tap away 1 or 2 animals first",
+    "vehicles": "Start with Learn — tap each vehicle to hear its sound and fun fact",
+    "clock": "Start with Learn — see o'clock times with daily activities",
+    "shadow": "Look at the overall shape of the shadow before choosing!",
 }
 
 SAME_MAP: dict[str, str] = {
@@ -40,6 +44,10 @@ SAME_MAP: dict[str, str] = {
     "sightwords": "Keep reading — try the Find It tab to spot words in sentences",
     "bodyparts": "Keep learning — try the Quiz tab to test what you know!",
     "daysmonths": "Keep practicing — try the Order Game to put days in the right order",
+    "subtraction": "Keep going — try bigger numbers like 8 minus 3!",
+    "vehicles": "Keep sorting — try to get all 14 vehicles into the right zone!",
+    "clock": "Keep reading clocks — try the Quiz tab to test yourself!",
+    "shadow": "Keep matching — can you beat your high score?",
 }
 
 HARDER_MAP: dict[str, str] = {
@@ -62,6 +70,10 @@ HARDER_MAP: dict[str, str] = {
     "sightwords": "Try the Spell It tab — build sight words from letter tiles!",
     "bodyparts": "Challenge: name every body part and say one thing it helps you do!",
     "daysmonths": "Try the Order Game with months — can you name the season for each one?",
+    "subtraction": "Challenge: solve subtraction without tapping the animals — picture it in your head!",
+    "vehicles": "Can you name a vehicle for each zone without looking at the cards?",
+    "clock": "Try half past times in the Quiz — they are trickier than o'clock!",
+    "shadow": "Challenge: guess before the answer reveals — trust your eyes!",
 }
 
 WEIGHTS = [0.30, 0.20, 0.15, 0.10, 0.08, 0.06, 0.04, 0.03, 0.02, 0.02]
