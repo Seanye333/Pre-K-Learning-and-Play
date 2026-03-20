@@ -32,6 +32,16 @@ EASIER_MAP: dict[str, str] = {
     "music": "Start with Learn — tap each instrument to see its name and fun fact",
     "nature": "Start with Learn → Living — flowers, trees, and animals are all living!",
     "directions": "Start with Learn — tap each arrow and say the direction out loud",
+    "weather": "Start with Learn — tap each weather type and see what clothes to wear",
+    "patterns": "Start with ABAB patterns — they only use 2 items!",
+    "money": "Start with Learn — tap each coin to see its value",
+    "habitats": "Start with Learn — explore each habitat and its animals",
+    "fractions": "Start with Learn — tap a food and see whole, half and quarter",
+    "abcorder": "Start with the Chart — tap each letter and find where it is",
+    "safety": "Start with Learn → Road — learn to look both ways before crossing",
+    "measurement": "Start with Compare → Tall/Short — which is taller?",
+    "space": "Start with Explore — tap each planet to learn a fun fact",
+    "sentences": "Start with Build — tap one word from each box to make a sentence",
 }
 
 SAME_MAP: dict[str, str] = {
@@ -68,6 +78,16 @@ SAME_MAP: dict[str, str] = {
     "music": "Keep exploring — try the Sort tab to group instruments by family!",
     "nature": "Keep sorting living and non-living — try the Quiz tab to test yourself!",
     "directions": "Keep practicing — try the Move Game to guide the chick around the grid!",
+    "weather": "Keep learning — try Dress Up to pick the right clothes for each weather!",
+    "patterns": "Keep going — try AABB patterns for a new challenge!",
+    "money": "Keep practicing — try Count It to add up coins!",
+    "habitats": "Keep exploring — try Sort mode to place each animal in its home!",
+    "fractions": "Keep learning — try Name It to identify fractions from pictures!",
+    "abcorder": "Keep practicing — try What's Next to find the letter that comes after!",
+    "safety": "Keep learning — try Safe or Not to test your safety knowledge!",
+    "measurement": "Keep comparing — try the Ruler game to count units!",
+    "space": "Keep exploring — try the Planet Quiz to name each planet!",
+    "sentences": "Keep building — try Arrange to put scrambled sentences in order!",
 }
 
 HARDER_MAP: dict[str, str] = {
@@ -104,6 +124,16 @@ HARDER_MAP: dict[str, str] = {
     "music": "Challenge: listen for the sound, then name the instrument and its family!",
     "nature": "Challenge: explain to someone why living things are different from non-living things!",
     "directions": "Challenge: complete the Move Game 3 times without any wrong moves!",
+    "weather": "Challenge: explain what season each weather belongs to without looking!",
+    "patterns": "Challenge: try ABC patterns — three different items in a row!",
+    "money": "Challenge: add up 4 coins in your head before tapping the answer!",
+    "habitats": "Challenge: name 2 animals from each habitat from memory!",
+    "fractions": "Challenge: explain what half and quarter mean to a grown-up!",
+    "abcorder": "Challenge: try ordering 5 letters — the longest challenge!",
+    "safety": "Challenge: make up your own safety rule for a new situation!",
+    "measurement": "Challenge: use the ruler to measure something in real life at home!",
+    "space": "Challenge: name all 8 planets in order from the Sun without looking!",
+    "sentences": "Challenge: arrange a whole sentence correctly on your first try!",
 }
 
 WEIGHTS = [0.30, 0.20, 0.15, 0.10, 0.08, 0.06, 0.04, 0.03, 0.02, 0.02]

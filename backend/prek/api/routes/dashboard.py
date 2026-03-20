@@ -10,7 +10,7 @@ from prek.core.models import GameSession, SkillScore
 
 router = APIRouter(tags=["dashboard"])
 
-SKILLS = ["abc", "math", "memory", "drawing", "shapes", "rhymes", "emotions", "wordbuilder", "colors", "animals", "story", "trace", "fruits", "opposites", "spotdiff", "numbertrace", "sightwords", "bodyparts", "daysmonths", "subtraction", "vehicles", "clock", "shadow", "phonics", "sizeorder", "helpers", "foodgroups", "sinkorflout", "skipcounting", "wordfamilies", "music", "nature", "directions"]
+SKILLS = ["abc", "math", "memory", "drawing", "shapes", "rhymes", "emotions", "wordbuilder", "colors", "animals", "story", "trace", "fruits", "opposites", "spotdiff", "numbertrace", "sightwords", "bodyparts", "daysmonths", "subtraction", "vehicles", "clock", "shadow", "phonics", "sizeorder", "helpers", "foodgroups", "sinkorflout", "skipcounting", "wordfamilies", "music", "nature", "directions", "weather", "patterns", "money", "habitats", "fractions", "abcorder", "safety", "measurement", "space", "sentences"]
 
 
 @router.get("/dashboard", response_model=DashboardResponse)
