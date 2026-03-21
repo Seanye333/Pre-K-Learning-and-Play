@@ -44,3 +44,24 @@ button {
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
 }
+
+/* ── Cute animations ────────────────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-18px) rotate(8deg); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-12px) rotate(-6deg); }
+}
+@keyframes rainbow-shift {
+  0%   { color: #f97316; }
+  20%  { color: #ec4899; }
+  40%  { color: #8b5cf6; }
+  60%  { color: #3b82f6; }
+  80%  { color: #22c55e; }
+  100% { color: #f97316; }
+}
+.animate-float   { animation: float  3.5s ease-in-out infinite; }
+.animate-floatB  { animation: floatB 4.2s ease-in-out infinite; }
+.animate-rainbow { animation: rainbow-shift 4s linear infinite; }
