@@ -7,7 +7,7 @@ from prek.core.models import SkillScore
 
 router = APIRouter(tags=["progress"])
 
-SKILLS = ["abc", "math", "memory", "drawing", "shapes", "rhymes", "emotions", "wordbuilder", "colors", "animals", "story", "trace", "fruits", "opposites", "spotdiff", "numbertrace", "sightwords", "bodyparts", "daysmonths", "subtraction", "vehicles", "clock", "shadow", "phonics", "sizeorder", "helpers", "foodgroups", "sinkorflout", "skipcounting", "wordfamilies", "music", "nature", "directions", "weather", "patterns", "money", "habitats", "fractions", "abcorder", "safety", "measurement", "space", "sentences"]
+SKILLS = ["abc", "math", "memory", "drawing", "shapes", "rhymes", "emotions", "wordbuilder", "colors", "animals", "story", "trace", "fruits", "opposites", "spotdiff", "numbertrace", "sightwords", "bodyparts", "daysmonths", "subtraction", "vehicles", "clock", "shadow", "phonics", "sizeorder", "helpers", "foodgroups", "sinkorflout", "skipcounting", "wordfamilies", "music", "nature", "directions", "weather", "patterns", "money", "habitats", "fractions", "abcorder", "safety", "measurement", "space", "sentences", "ordinal", "numberline", "moreorless", "tenframes", "numberbonds", "numberwords", "syllables", "compound", "plurals", "verbs", "prepositions", "cvc", "plantlife", "animalcycle", "senses", "pushpull", "temperature", "seasonschange", "habits", "routine", "babyanimals", "homes", "worldfoods", "shapes3d", "maps", "colorwords", "sizewords", "sortcolors", "scenarios", "rhymestory"]
 
 
 @router.get("/progress", response_model=ProgressResponse)
