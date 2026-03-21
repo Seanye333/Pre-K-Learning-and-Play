@@ -64,7 +64,7 @@ export default function SpellWord({ onScore }: SpellWordProps) {
           setChosen([]);
           setUsedIndices(new Set());
           setFeedback("idle");
-        }, 900);
+        }, 1100);
       }
     }
   };
@@ -88,7 +88,7 @@ export default function SpellWord({ onScore }: SpellWordProps) {
         {currentWord.word.split("").map((_, i) => (
           <motion.div
             key={i}
-            className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-black border-4
+            className={`w-16 h-16 min-w-[52px] min-h-[52px] rounded-2xl flex items-center justify-center text-3xl font-black border-4
               ${chosen[i] ? "bg-white text-indigo-600 border-indigo-400" : "bg-white/30 text-transparent border-white/50"}`}
             animate={feedback === "correct" ? { scale: [1, 1.2, 1], backgroundColor: "#bbf7d0" } :
                      feedback === "wrong" ? { x: [-6, 6, -6, 6, 0] } : {}}
@@ -131,9 +131,7 @@ export default function SpellWord({ onScore }: SpellWordProps) {
         </motion.p>
       )}
 
-      <p className="text-white/70 text-sm">
-        Score: {correct}/{total}
-      </p>
+      <p className="bg-white/20 rounded-full px-4 py-1 text-white font-black text-sm">⭐ {correct} / {total}</p>
     </div>
   );
 }

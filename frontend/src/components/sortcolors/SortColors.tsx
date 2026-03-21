@@ -139,7 +139,7 @@ export default function SortColors({ onScore }: Props) {
       setTimeout(() => {
         setFeedback("idle");
         setWrongColor(null);
-      }, 800);
+      }, 1100);
     }
   };
 
@@ -226,7 +226,7 @@ export default function SortColors({ onScore }: Props) {
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
           >
-            Try again! 💪
+            It&apos;s {currentItem.colorName}! 🎨
           </motion.p>
         )}
       </AnimatePresence>
@@ -237,10 +237,9 @@ export default function SortColors({ onScore }: Props) {
           <motion.button
             key={c.name}
             onClick={() => handlePick(c.name)}
-            className="rounded-2xl py-3 px-2 flex flex-col items-center gap-1 shadow-lg font-extrabold text-white text-sm"
+            className={`rounded-2xl py-3 px-2 flex flex-col items-center gap-1 shadow-lg font-extrabold text-white text-sm${wrongColor === c.name ? " ring-4 ring-white" : ""}`}
             style={{
               backgroundColor: c.hex,
-              border: wrongColor === c.name ? "3px solid white" : "3px solid transparent",
             }}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.9 }}
@@ -258,7 +257,7 @@ export default function SortColors({ onScore }: Props) {
         ))}
       </div>
 
-      <p className="text-white/60 text-xs">Score: {correct}/{total}</p>
+      <p className="bg-white/20 rounded-full px-4 py-1 text-white font-black text-sm">⭐ {correct} / {total}</p>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import MemoryCard from "./MemoryCard";
 import GameStats from "./GameStats";
 import { ANIMALS, MEMORY_PAIRS_EASY } from "@/lib/constants";
@@ -40,6 +40,7 @@ export default function MemoryBoard({ onGameEnd }: MemoryBoardProps) {
   const [flips, setFlips] = useState(0);
   const [matchedCount, setMatchedCount] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+  const [matchFlash, setMatchFlash] = useState<{ emoji: string; name: string } | null>(null);
 
   const handleCardClick = (idx: number) => {
     if (locked) return;
@@ -71,6 +72,9 @@ export default function MemoryBoard({ onGameEnd }: MemoryBoardProps) {
         setFirstIdx(null);
         setLocked(false);
 
+        setMatchFlash({ emoji: first.emoji, name: first.name });
+        setTimeout(() => setMatchFlash(null), 900);
+
         if (newMatchedCount === pairCount) {
           setGameOver(true);
           onGameEnd(newFlips, pairCount);
@@ -97,6 +101,7 @@ export default function MemoryBoard({ onGameEnd }: MemoryBoardProps) {
     setFlips(0);
     setMatchedCount(0);
     setGameOver(false);
+    setMatchFlash(null);
   };
 
   // 3x4 grid layout
@@ -133,7 +138,7 @@ export default function MemoryBoard({ onGameEnd }: MemoryBoardProps) {
             🎉 All matched!
           </p>
           <p className="text-xl text-white/80 mb-4">
-            You did it in {flips} flips!
+            You found all {pairCount} pairs in {flips} moves!
           </p>
           <button
             onClick={resetGame}
@@ -143,6 +148,23 @@ export default function MemoryBoard({ onGameEnd }: MemoryBoardProps) {
           </button>
         </motion.div>
       )}
+
+      <AnimatePresence>
+        {matchFlash && (
+          <motion.div
+            className="fixed inset-0 flex items-center justify-center pointer-events-none z-40"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.5 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="flex flex-col items-center">
+              <span className="text-8xl">{matchFlash.emoji}</span>
+              <p className="text-3xl font-black text-green-300 drop-shadow-lg mt-1">✓ Match!</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

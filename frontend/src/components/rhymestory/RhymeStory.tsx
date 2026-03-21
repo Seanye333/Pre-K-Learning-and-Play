@@ -145,7 +145,7 @@ export default function RhymeStory({ onScore }: Props) {
       setTimeout(() => {
         setFeedback("idle");
         setChosen(null);
-      }, 900);
+      }, 1100);
     }
   };
 
@@ -226,10 +226,9 @@ export default function RhymeStory({ onScore }: Props) {
               </span>
             ) : (
               <span className="text-white italic">
-                {couplet.lineTwo.replace("___", "")}
-                <span className="text-yellow-200 tracking-widest border-b-2 border-yellow-200 px-1">
-                  _ _ _
-                </span>
+                {couplet.lineTwo.split("___")[0]}
+                <span className="inline-block bg-yellow-200 rounded-full px-4 py-1 font-black text-xl text-yellow-800 mx-1">_ _ _</span>
+                {couplet.lineTwo.split("___")[1]}
               </span>
             )}
           </p>
@@ -240,7 +239,7 @@ export default function RhymeStory({ onScore }: Props) {
       <AnimatePresence>
         {feedback === "correct" && (
           <motion.p
-            className="text-2xl font-black text-yellow-200"
+            className="text-3xl font-black text-yellow-200"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
@@ -288,7 +287,7 @@ export default function RhymeStory({ onScore }: Props) {
         })}
       </div>
 
-      <p className="text-white/60 text-xs">Score: {correct}/{total}</p>
+      <p className="bg-white/20 rounded-full px-4 py-1 text-white font-black text-sm">⭐ {correct} / {total}</p>
     </div>
   );
 }

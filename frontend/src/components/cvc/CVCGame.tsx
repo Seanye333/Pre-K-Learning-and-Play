@@ -52,11 +52,13 @@ export default function CVCGame({ onScore }: Props) {
   const [placed, setPlaced] = useState<string[]>([]);
   const [bankLetters, setBankLetters] = useState<string[]>(() => makeBank(0));
   const [buildFb, setBuildFb] = useState<"idle" | "correct" | "wrong">("idle");
+  const [buildCorrect, setBuildCorrect] = useState(false);
 
   // Quiz state
   const [qIdx, setQIdx] = useState(0);
   const [qChoices, setQChoices] = useState<string[]>(() => makeQChoices(0));
   const [qFb, setQFb] = useState<"idle" | "correct" | "wrong">("idle");
+  const [revealCorrect, setRevealCorrect] = useState(false);
   const [correct, setCorrect] = useState(0);
   const [total, setTotal] = useState(0);
 
@@ -88,6 +90,10 @@ export default function CVCGame({ onScore }: Props) {
     if (placed.length < 3 || buildFb !== "idle") return;
     const isCorrect = placed.join("") === WORDS[buildIdx].word;
     setBuildFb(isCorrect ? "correct" : "wrong");
+    if (isCorrect) {
+      setBuildCorrect(true);
+      setTimeout(() => setBuildCorrect(false), 700);
+    }
     setTimeout(() => {
       setBuildFb("idle");
       const next = (buildIdx + 1) % WORDS.length;
@@ -105,12 +111,24 @@ export default function CVCGame({ onScore }: Props) {
     setCorrect(nc); setTotal(nt);
     onScore(nc, nt);
     setQFb(isCorrect ? "correct" : "wrong");
-    setTimeout(() => {
-      setQFb("idle");
-      const next = (qIdx + 1) % WORDS.length;
-      setQIdx(next);
-      setQChoices(makeQChoices(next));
-    }, 1000);
+    if (!isCorrect) {
+      setTimeout(() => setRevealCorrect(true), 300);
+      setTimeout(() => {
+        setRevealCorrect(false);
+        setQFb("idle");
+        const next = (qIdx + 1) % WORDS.length;
+        setQIdx(next);
+        setQChoices(makeQChoices(next));
+      }, 1400);
+    } else {
+      setTimeout(() => {
+        setRevealCorrect(false);
+        setQFb("idle");
+        const next = (qIdx + 1) % WORDS.length;
+        setQIdx(next);
+        setQChoices(makeQChoices(next));
+      }, 1400);
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [qFb, qIdx, correct, total, onScore]);
 
@@ -171,11 +189,13 @@ export default function CVCGame({ onScore }: Props) {
                 <motion.div key={i}
                   onClick={() => placed[i] && removePlaced(i)}
                   className={`w-14 h-14 rounded-2xl border-4 flex items-center justify-center text-3xl font-black cursor-pointer
-                    ${placed[i]
-                      ? buildFb === "correct" ? "bg-green-400 border-green-600 text-white"
-                        : buildFb === "wrong" ? "bg-red-400 border-red-600 text-white"
-                        : "bg-white/90 border-white text-emerald-700"
-                      : "bg-white/20 border-white/40 text-transparent"}`}
+                    ${buildCorrect
+                      ? "bg-green-300 border-green-500 text-white"
+                      : placed[i]
+                        ? buildFb === "correct" ? "bg-green-400 border-green-600 text-white"
+                          : buildFb === "wrong" ? "bg-red-400 border-red-600 text-white"
+                          : "bg-white/90 border-white text-emerald-700"
+                        : "bg-white/20 border-white/40 text-transparent"}`}
                   whileTap={{ scale: 0.9 }}>
                   {placed[i]?.toUpperCase() || ""}
                 </motion.div>
@@ -225,6 +245,7 @@ export default function CVCGame({ onScore }: Props) {
                 let cls = "bg-white/90 text-emerald-800 font-black text-xl rounded-2xl py-4 w-full shadow";
                 if (qFb === "correct" && isAnswer) cls = "bg-green-400 text-white font-black text-xl rounded-2xl py-4 w-full shadow";
                 if (qFb === "wrong" && isAnswer) cls = "bg-red-400 text-white font-black text-xl rounded-2xl py-4 w-full shadow";
+                if (revealCorrect && isAnswer) cls = "bg-yellow-300 text-gray-900 font-black text-xl rounded-2xl py-4 w-full shadow";
                 return (
                   <motion.button key={word} onClick={() => pickQuiz(word)} className={cls}
                     whileHover={{ scale: qFb === "idle" ? 1.04 : 1 }} whileTap={{ scale: qFb === "idle" ? 0.92 : 1 }}>
@@ -233,7 +254,7 @@ export default function CVCGame({ onScore }: Props) {
                 );
               })}
             </div>
-            <p className="text-white/70 text-sm">Score: {correct} / {total}</p>
+            <p className="bg-white/20 rounded-full px-4 py-1 text-white font-black text-sm">⭐ {correct} / {total}</p>
           </motion.div>
         </AnimatePresence>
       )}

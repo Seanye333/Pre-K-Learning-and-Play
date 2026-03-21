@@ -24,6 +24,7 @@ export default function MatchGame({ difficulty, onScore }: MatchGameProps) {
   const [wrong, setWrong] = useState<string | null>(null);
   const [correct, setCorrect] = useState(0);
   const [attempts, setAttempts] = useState(0);
+  const [rounds, setRounds] = useState(0);
 
   const initGame = () => {
     const pool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -35,12 +36,16 @@ export default function MatchGame({ difficulty, onScore }: MatchGameProps) {
     setWrong(null);
     setCorrect(0);
     setAttempts(0);
+    setRounds(0);
   };
 
   useEffect(() => { initGame(); }, [difficulty]);
 
   const handleUpperClick = (letter: string) => {
     if (matched.has(letter)) return;
+    if (letter !== selectedUpper) {
+      setRounds(r => r + 1);
+    }
     setSelectedUpper(letter);
   };
 
@@ -58,7 +63,7 @@ export default function MatchGame({ difficulty, onScore }: MatchGameProps) {
       setCorrect(newCorrect);
       setSelectedUpper(null);
       if (newMatched.size === pairCount) {
-        onScore(newCorrect, newAttempts);
+        onScore(newCorrect, rounds);
       }
     } else {
       setWrong(lower);
@@ -118,14 +123,19 @@ export default function MatchGame({ difficulty, onScore }: MatchGameProps) {
 
       {matched.size === pairCount && (
         <motion.div
-          className="text-4xl font-black text-yellow-300"
+          className="flex flex-col items-center gap-2 text-center"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ type: "spring" }}
         >
-          🎉 All matched! Great job!
+          <p className="text-3xl font-black text-yellow-300">
+            🎉 All matched! Great job!
+          </p>
+          <p className="text-white/80 text-lg font-bold">⭐ {correct} / {pairCount} correct!</p>
         </motion.div>
       )}
+
+      <p className="bg-white/20 rounded-full px-4 py-1 text-white font-black text-sm">⭐ {correct} matched</p>
 
       <button
         onClick={initGame}

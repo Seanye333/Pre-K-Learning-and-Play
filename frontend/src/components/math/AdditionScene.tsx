@@ -24,6 +24,7 @@ export default function AdditionScene({ difficulty, onScore }: AdditionSceneProp
   const [feedback, setFeedback] = useState<"idle" | "correct" | "wrong">("idle");
   const [correct, setCorrect] = useState(0);
   const [total, setTotal] = useState(0);
+  const [chosen, setChosen] = useState<number | null>(null);
 
   const newRound = () => {
     const maxSum = MAX_SUM[difficulty];
@@ -42,12 +43,14 @@ export default function AdditionScene({ difficulty, onScore }: AdditionSceneProp
     }
     setChoices(shuffle([sum, ...Array.from(distractors)]));
     setFeedback("idle");
+    setChosen(null);
   };
 
   useEffect(() => { newRound(); }, [difficulty]);
 
   const handleChoice = (n: number) => {
     if (feedback !== "idle") return;
+    setChosen(n);
     const newTotal = total + 1;
     setTotal(newTotal);
     if (n === a + b) {
@@ -55,11 +58,20 @@ export default function AdditionScene({ difficulty, onScore }: AdditionSceneProp
       setCorrect(newCorrect);
       setFeedback("correct");
       onScore(newCorrect, newTotal);
-      setTimeout(newRound, 1300);
+      setTimeout(newRound, 1600);
     } else {
       setFeedback("wrong");
       setTimeout(() => setFeedback("idle"), 800);
     }
+  };
+
+  const sum = a + b;
+
+  const getButtonClass = (n: number): string => {
+    if (feedback === "correct" && n === sum) return "bg-green-400 text-white";
+    if (feedback === "wrong" && n === chosen) return "bg-red-400 text-white";
+    if (feedback === "wrong" && n === sum) return "bg-yellow-300 text-gray-900";
+    return "bg-indigo-500 text-white";
   };
 
   return (
@@ -93,11 +105,10 @@ export default function AdditionScene({ difficulty, onScore }: AdditionSceneProp
           <motion.button
             key={n}
             onClick={() => handleChoice(n)}
-            className={`w-20 h-20 rounded-2xl text-4xl font-black text-white shadow-lg
-              ${feedback === "correct" && n === a + b ? "bg-green-400" : "bg-indigo-500"}`}
+            className={`w-20 h-20 rounded-2xl text-4xl font-black shadow-lg ${getButtonClass(n)}`}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.88 }}
-            animate={feedback === "wrong" && n !== a + b ? { x: [-4, 4, -4, 4, 0] } : {}}
+            animate={feedback === "wrong" && n !== sum ? { x: [-4, 4, -4, 4, 0] } : {}}
           >
             {n}
           </motion.button>
@@ -106,14 +117,14 @@ export default function AdditionScene({ difficulty, onScore }: AdditionSceneProp
 
       {feedback === "correct" && (
         <motion.p className="text-3xl font-black text-yellow-200" initial={{ scale: 0 }} animate={{ scale: 1 }}>
-          🌟 {a} + {b} = {a + b}!
+          🌟 {a} + {b} = {sum}!
         </motion.p>
       )}
       {feedback === "wrong" && (
         <p className="text-2xl font-black text-red-200">Try again! 💪</p>
       )}
 
-      <p className="text-white/70 text-sm">Score: {correct}/{total}</p>
+      <p className="bg-white/20 rounded-full px-4 py-1 text-white font-black text-sm">⭐ {correct} / {total}</p>
     </div>
   );
 }
